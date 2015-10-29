@@ -24,5 +24,5 @@ hook(const char *sym_name, void *replacement) //attach a leading underscore to s
 ```
 
 ## injection
-To inject your _dylibs_ just use the good old __dyld__-provided environment variables, or check this cool `task_for_pid` injection from my man qwertyoruiop (supporting KJC): [inj](https://github.com/kpwn/inj).
+To inject your _dylibs_ just use the good old __dyld__-provided environment variables, or check this cool `task_for_pid` injection from my man [qwertyoruiop](https://twitter.com/qwertyoruiop) (supporting KJC): [inj](https://github.com/kpwn/inj).
 Please note that the fucking SIP on El Capitan may be standing in your way when trying to hook protected binaries, and also when using `task_for_pid` Mach trap.
