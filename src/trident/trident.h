@@ -4,12 +4,6 @@
 *
 */
 
-//  Quick note from @jndok:
-//  this tool seems to work. changes and updates
-//  are planned and are coming soon.
-//  will fail on stripped binaries. will also fail if a
-//  symbol belonging to the hooked binary image is not found.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
