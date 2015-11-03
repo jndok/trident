@@ -34,5 +34,5 @@ typedef struct hook_table {
   uint32_t lazy_offset;
 } hook_table_t;
 
-void *__get_target_base_addr(void *sym);
-void hook(const char *target, void *replacement);
+void *__get_target_base_addr(void *sym);  /* semi-deprecated */
+void hook(const char *target, void *replacement, struct mach_header *header_ptr);

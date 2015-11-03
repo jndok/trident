@@ -10,19 +10,25 @@ void *__get_target_base_addr(void *sym) {
   return info.dli_fbase;
 }
 
-void hook(const char *target, void *replacement)
+void hook(const char *target, void *replacement, struct mach_header *header_ptr)
 {
   assert(target);
   assert(replacement);
 
   puts("[+] Injected into process, now attempting to retrieve binary image base address...");
   void *base=NULL;
+/*
   if ((base=__get_target_base_addr((void*)main)) == NULL) {
     puts("[!] Failed to retrieve base address using _main symbol. The binary may be using another entry point or may be stripped.");
     exit(-1);
   } else {
     puts("[+] Correctly found a _main symbol in the address space. Be aware that this may not be the actual image entry point!");
   }
+*/
+
+  base=(void*)header_ptr;
+
+  printf("[+] Found binary mach header @ %p\n", base);
 
   struct mach_header *header=(struct mach_header*)base;
   if (header->magic != MH_MAGIC_64) {
